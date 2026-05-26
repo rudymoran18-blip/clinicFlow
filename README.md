@@ -134,7 +134,7 @@ http://localhost:4200
 
 ---
 
-## 📌 Estado del proyecto
+##  Estado del proyecto
 
 - CRUD funcional de pacientes y citas
 - Arquitectura frontend/backend separada
