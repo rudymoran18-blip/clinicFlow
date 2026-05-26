@@ -1,0 +1,120 @@
+<div class="container-fluid p-0 animate-fade-in">
+
+  <div class="mb-4">
+    <a routerLink="/pacientes" class="text-decoration-none small text-muted fw-semibold d-inline-flex align-items-center gap-1 mb-2">
+      <i class="fas fa-arrow-left"></i> Volver al listado
+    </a>
+    <h3 class="fw-bold text-slate-800 mb-1">
+      {{ esNuevo ? 'Registrar Nuevo Paciente' : 'Modificar Expediente Clínico' }}
+    </h3>
+    <p class="text-muted small mb-0">Llena los campos obligatorios para mantener actualizado el expediente del paciente.</p>
+  </div>
+
+  <div class="card card-form border-0 shadow-sm p-4">
+    <form #formPaciente="ngForm" (ngSubmit)="onSubmit(formPaciente)" novalidate>
+
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6">
+          <label for="nombre" class="form-label-clinic fw-semibold mb-2">Nombre Completo</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-user"></i></span>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': nombre.invalid && (nombre.touched || formPaciente.submitted) }"
+              [(ngModel)]="paciente.nombre"
+              required
+              placeholder="Ej. Carlos Mendoza"
+              #nombre="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> El nombre completo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="telefono" class="form-label-clinic fw-semibold mb-2">Teléfono de Contacto</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-phone-alt"></i></span>
+            <input
+              type="text"
+              id="telefono"
+              name="telefono"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': telefono.invalid && (telefono.touched || formPaciente.submitted) }"
+              [(ngModel)]="paciente.telefono"
+              required
+              placeholder="Ej. +502 5555-4444"
+              #telefono="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> El número de teléfono es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="fecha_nacimiento" class="form-label-clinic fw-semibold mb-2">Fecha de Nacimiento</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-calendar-alt"></i></span>
+            <input
+              type="date"
+              id="fecha_nacimiento"
+              name="fecha_nacimiento"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': fecha_nacimiento.invalid && (fecha_nacimiento.touched || formPaciente.submitted) }"
+              [(ngModel)]="paciente.fecha_nacimiento"
+              required
+              #fecha_nacimiento="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> La fecha de nacimiento es requerida.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="genero" class="form-label-clinic fw-semibold mb-2">Género</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-venus-mars"></i></span>
+            <select
+              id="genero"
+              name="genero"
+              class="form-select-clinic"
+              [ngClass]="{ 'is-invalid': genero.invalid && (genero.touched || formPaciente.submitted) }"
+              [(ngModel)]="paciente.genero"
+              required
+              #genero="ngModel"
+            >
+              <option [ngValue]="0">Seleccione el género...</option>
+              <option [ngValue]="'Masculino'">Masculino</option>
+              <option [ngValue]="'Femenino'">Femenino</option>
+            </select>
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> Debe seleccionar un género.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="text-slate-200 my-4">
+
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" routerLink="/pacientes" class="btn btn-cancel-clinic px-4 py-2">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-submit-clinic px-4 py-2 shadow-sm">
+          <i class="fas fa-save me-1"></i>
+          {{ esNuevo ? 'Guardar Registro' : 'Actualizar Cambios' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

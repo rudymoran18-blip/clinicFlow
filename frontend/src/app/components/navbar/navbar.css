@@ -1,0 +1,43 @@
+/* Colores personalizados del ecosistema de la clínica */
+.bg-primary-clinic {
+  background-color: #0f172a !important; /* Azul oscuro/slate profesional */
+}
+
+.text-accent-clinic {
+  color: #0ea5e9; /* Azul celeste brillante para resaltar elementos médicos */
+}
+
+/* Efectos de hover sutiles y elegantes en los links */
+.navbar-nav .nav-link {
+  color: #94a3b8;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Avatar del Médico */
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #0ea5e9;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tipografías auxiliares */
+.fs-7 { font-size: 0.875rem; }
+.fs-8 { font-size: 0.75rem; }
+.tracking-tight { letter-spacing: -0.025em; }

@@ -1,0 +1,115 @@
+.sidebar-clinic {
+  width: 260px;
+  min-width: 260px;
+  background-color: #ffffff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.sidebar-clinic .nav-link {
+  color: #64748b;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.icon-wrapper {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-clinic .nav-link.active {
+  background-color: #0284c7 !important;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.15);
+}
+
+.sidebar-clinic .nav-link:not(.active):hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   💻 RESPONSIVE: TABLETS (Pantallas medianas entre 576px y 768px)
+   Aquí el sidebar se encoge a un lateral y solo muestra iconos.
+   ========================================================================== */
+@media (min-width: 576px) and (max-width: 768px) {
+  .sidebar-clinic {
+    width: 72px;
+    min-width: 72px;
+  }
+
+  .sidebar-clinic .sidebar-text {
+    display: none;
+  }
+
+  .sidebar-clinic .nav-link {
+    justify-content: center;
+    padding: 0.85rem 0;
+  }
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE: SMARTPHONES (Pantallas pequeñas menores a 575px)
+   El sidebar se transforma en una botonera inferior fija estilo App Móvil.
+   ========================================================================== */
+@media (max-width: 575.98px) {
+  .sidebar-clinic {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 65px !important; /* Altura fija en el fondo */
+    z-index: 1050; /* Por encima del contenido */
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid #e2e8f0;
+    border-right: none !important;
+  }
+
+  /* Cambiamos la lista de vertical a horizontal */
+  .sidebar-clinic .nav {
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 0 !important;
+    padding: 0 1rem;
+  }
+
+  .sidebar-clinic .nav-item,
+  .sidebar-clinic li {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Ajuste de los botones en móvil */
+  .sidebar-clinic .nav-link {
+    flex-direction: column !important; /* Icono arriba, texto abajo */
+    gap: 4px !important;
+    padding: 6px 0 !important;
+    border-radius: 6px;
+    background-color: transparent !important; /* Quitamos el fondo azul pesado */
+    box-shadow: none !important;
+  }
+
+  /* El texto se vuelve más pequeño pero sigue visible de forma elegante */
+  .sidebar-clinic .sidebar-text {
+    display: block !important;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  /* En móvil el estado activo solo pinta el texto y el icono de azul */
+  .sidebar-clinic .nav-link.active {
+    color: #0284c7 !important;
+  }
+
+  .sidebar-clinic .icon-wrapper {
+    width: auto;
+  }
+}

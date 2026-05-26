@@ -1,0 +1,116 @@
+/* Tipografía y Contenedores */
+.text-slate-800 { color: #1e293b; }
+.text-slate-200 { color: #e2e8f0; }
+
+.card-form {
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.form-label-clinic {
+  font-size: 0.85rem;
+  color: #475569;
+  letter-spacing: 0.02em;
+}
+
+/* Estilización de Inputs Premium (Input Groups) */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group-text-clinic {
+  display: flex;
+  align-items: center;
+  padding: 0.575rem 0.85rem;
+  font-size: 0.9rem;
+  color: #64748b;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px 0 0 8px;
+}
+
+.form-control-clinic, .form-select-clinic {
+  flex: 1 1 auto;
+  width: 1%;
+  padding: 0.575rem 0.85rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0 8px 8px 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-clinic:focus, .form-select-clinic:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  outline: 0;
+}
+
+/* Manejo de Validación */
+.form-control-clinic.is-invalid, .form-select-clinic.is-invalid {
+  border-color: #ef4444;
+  border-left-color: #cbd5e1;
+}
+
+.form-control-clinic.is-invalid:focus, .form-select-clinic.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.35rem;
+  font-size: 0.785rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Botonera de Acción */
+.btn-submit-clinic {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit-clinic:hover {
+  background-color: #0369a1;
+  color: #ffffff;
+}
+
+.btn-cancel-clinic {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-clinic:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+/* Animación sutil */
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

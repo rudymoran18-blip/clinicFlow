@@ -1,0 +1,27 @@
+/* Utilidades de Escala y Color */
+.text-slate-800 { color: #1e293b; }
+.text-slate-300 { color: #cbd5e1; }
+.fs-8 { font-size: 0.75rem; }
+
+.footer-clinic {
+  background-color: #ffffff;
+}
+
+/* Control del ancho para evitar que el texto de descripción empuje al copyright */
+.text-balance-clinic {
+  max-width: 520px;
+  line-height: 1.4;
+}
+
+/* Clases de tracking nativo de ClinicFlow */
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+/* Efecto de barra vertical de Bootstrap (vr) */
+.vr {
+  display: inline-block;
+  align-self: center;
+  width: 1px;
+  opacity: 0.25;
+}

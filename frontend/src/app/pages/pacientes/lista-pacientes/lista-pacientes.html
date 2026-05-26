@@ -1,0 +1,72 @@
+<div class="container-fluid p-0 animate-fade-in">
+
+  <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+    <div>
+      <h3 class="fw-bold text-slate-800 mb-1">Control de Pacientes</h3>
+      <p class="text-muted small mb-0">Visualiza, edita o registra los expedientes clínicos de la clínica.</p>
+    </div>
+
+    <button (click)="nuevoPaciente()" class="btn btn-primary-clinic d-flex align-items-center justify-content-center gap-2 px-4 py-2 shadow-sm">
+      <i class="fas fa-user-plus"></i>
+      <span>Nuevo Paciente</span>
+    </button>
+  </div>
+
+  <div class="card card-table border-0 shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light-clinic">
+          <tr>
+            <th class="text-uppercase text-muted fs-8 fw-bold">Nombre Completo</th>
+            <th class="text-uppercase text-muted fs-8 fw-bold">Teléfono</th>
+            <th class="text-uppercase text-muted fs-8 fw-bold">Fecha Nacimiento</th>
+            <th class="text-uppercase text-muted fs-8 fw-bold">Género</th>
+            <th class="pe-4 text-uppercase text-muted fs-8 fw-bold text-end">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="pacientes.length === 0">
+            <td colspan="6" class="text-center py-5 text-muted">
+              <i class="fas fa-users-slash fs-2 mb-3 d-block text-black-50"></i>
+              No se encontraron registros de pacientes.
+            </td>
+          </tr>
+
+          <tr *ngFor="let paciente of pacientes">
+            <td>
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar-patient">
+                  <i class="fas fa-user text-primary"></i>
+                </div>
+                <div class="fw-semibold text-slate-800 fs-7">{{ paciente.nombre }}</div>
+              </div>
+            </td>
+            <td class="text-muted fs-7">
+              <i class="fas fa-phone-alt fs-8 me-1 opacity-50"></i> {{ paciente.telefono }}
+            </td>
+            <td class="text-muted fs-7">
+              {{ paciente.fecha_nacimiento | date: 'mediumDate' }}
+            </td>
+            <td>
+              <span class="badge rounded-pill px-2 py-1 fs-8 fw-semibold"
+                    [ngClass]="paciente.genero === 'Masculino' || paciente.genero === 'M' ? 'bg-blue-soft text-blue' : 'bg-pink-soft text-pink'">
+                {{ paciente.genero }}
+              </span>
+            </td>
+            <td class="pe-4 text-end">
+              <div class="d-inline-flex gap-2">
+                <button (click)="editarPaciente(paciente.id)" class="btn btn-icon-action btn-edit" title="Editar Expediente">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button (click)="eliminarPaciente(paciente.id)" class="btn btn-icon-action btn-delete" title="Dar de baja">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

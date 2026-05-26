@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f8fafc;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 🟢 NUEVO: Une el Sidebar y el Main horizontalmente */
+.workspace-wrapper {
+  display: flex;
+  flex: 1; /* Absorbe el espacio vertical disponible empujando al footer */
+  position: relative;
+}
+
+/* Modificamos el main-content para que se adapte al lado del sidebar */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+
+  /* Evita que contenidos muy anchos (como tablas grandes) rompan el layout */
+  overflow-x: hidden;
+}
+
+/* Ajuste responsivo para pantallas grandes */
+@media (min-width: 768px) {
+  .main-content {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .app-container {
+    padding-bottom: 65px; /* Evita que el menú inferior tape el contenido de la app */
+  }
+}

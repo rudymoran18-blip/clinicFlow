@@ -1,0 +1,140 @@
+<div class="container-fluid p-0 animate-fade-in">
+
+  <div class="mb-4">
+    <a routerLink="/citas" class="text-decoration-none small text-muted fw-semibold d-inline-flex align-items-center gap-1 mb-2">
+      <i class="fas fa-arrow-left"></i> Volver a la agenda
+    </a>
+    <h3 class="fw-bold text-slate-800 mb-1">
+      {{ esNuevo ? 'Programar Nueva Cita' : 'Modificar Espacio de Cita' }}
+    </h3>
+    <p class="text-muted small mb-0">Asigna un paciente, horario y motivo de consulta en los campos correspondientes.</p>
+  </div>
+
+  <div class="card card-form border-0 shadow-sm p-4">
+    <form #formCita="ngForm" (ngSubmit)="onSubmit(formCita)" novalidate>
+
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6">
+          <label for="paciente_id" class="form-label-clinic fw-semibold mb-2">Paciente Solicitante</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-user-injured"></i></span>
+            <select
+              id="paciente_id"
+              name="paciente_id"
+              class="form-select-clinic"
+              [ngClass]="{ 'is-invalid': (paciente_id.invalid || cita.paciente_id === 0) && (paciente_id.touched || formCita.submitted) }"
+              [(ngModel)]="cita.paciente_id"
+              required
+              #paciente_id="ngModel"
+            >
+              <option [ngValue]="0">Seleccione un paciente de la lista...</option>
+              <option *ngFor="let paciente of pacientes" [ngValue]="paciente.id">
+                {{ paciente.nombre }}
+              </option>
+            </select>
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> Debes seleccionar un paciente válido.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="estado" class="form-label-clinic fw-semibold mb-2">Estado Inicial / Actual</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-info-circle"></i></span>
+            <select
+              id="estado"
+              name="estado"
+              class="form-select-clinic"
+              [(ngModel)]="cita.estado"
+              required
+              #estado="ngModel"
+            >
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="atendida">Atendida</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="fecha" class="form-label-clinic fw-semibold mb-2">Fecha Programada</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-calendar-day"></i></span>
+            <input
+              type="date"
+              id="fecha"
+              name="fecha"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': fecha.invalid && (fecha.touched || formCita.submitted) }"
+              [(ngModel)]="cita.fecha"
+              required
+              #fecha="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> La fecha de la cita es obligatoria.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="hora" class="form-label-clinic fw-semibold mb-2">Hora de la Consulta</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-clock"></i></span>
+            <input
+              type="time"
+              id="hora"
+              name="hora"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': hora.invalid && (hora.touched || formCita.submitted) }"
+              [(ngModel)]="cita.hora"
+              required
+              #hora="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> La hora de la cita es obligatoria.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="motivo" class="form-label-clinic fw-semibold mb-2">Motivo o Síntomas</label>
+          <div class="input-group">
+            <span class="input-group-text-clinic"><i class="fas fa-notes-medical"></i></span>
+            <input
+              type="text"
+              id="motivo"
+              name="motivo"
+              class="form-control-clinic"
+              [ngClass]="{ 'is-invalid': motivo.invalid && (motivo.touched || formCita.submitted) }"
+              [(ngModel)]="cita.motivo"
+              required
+              placeholder="Ej. Control mensual por dolor de cabeza recurrente"
+              #motivo="ngModel"
+            />
+            <div class="invalid-feedback">
+              <i class="fas fa-exclamation-circle me-1"></i> El motivo de la consulta es obligatorio.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="text-slate-200 my-4">
+
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" routerLink="/citas" class="btn btn-cancel-clinic px-4 py-2">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-submit-clinic px-4 py-2 shadow-sm">
+          <i class="fas fa-check-circle me-1"></i>
+          {{ esNuevo ? 'Agendar Cita' : 'Actualizar Agenda' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
