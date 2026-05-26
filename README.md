@@ -97,7 +97,7 @@ ClinicFlow/
 ### Clonar repositorio
 
 ```bash
-git clone TU_REPOSITORIO
+git clone https://github.com/rudymoran18-blip/clinicFlow.git
 ```
 
 ---
