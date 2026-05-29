@@ -5,6 +5,10 @@ Sistema web de gestión clínica desarrollado con Angular, Node.js, Express y My
 ClinicFlow permite administrar pacientes y citas médicas mediante operaciones CRUD completas, utilizando una arquitectura frontend/backend desacoplada y base de datos relacional.
 
 ---
+# Demo en línea
+Frontend
+
+https://clinicflow-web.netlify.app
 
 ##  Capturas del sistema
 
