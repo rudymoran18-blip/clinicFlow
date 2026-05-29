@@ -6,7 +6,6 @@ ClinicFlow permite administrar pacientes y citas médicas mediante operaciones C
 
 ---
 # Demo en línea
-Frontend
 
 https://clinicflow-web.netlify.app
 
