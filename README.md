@@ -147,7 +147,7 @@ http://localhost:4200
 
 ---
 
-##  Autor
+##  Desarrollador
 
 ### Rudy Isaías Morán Gómez
 
